@@ -1,0 +1,111 @@
+name: random_spin
+description: Random Spin App.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  get: ^4.6.5
+  shared_preferences: ^2.1.0
+  flutter_fortune_wheel: ^1.2.0
+  audioplayers: ^4.0.1
+  package_info_plus: ^3.1.2
+  url_launcher: ^6.1.10
+  font_awesome_flutter: ^10.4.0
+  flutter_svg: ^2.0.5
+  google_mobile_ads: ^3.0.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: false
+  image_path: "assets/icons/app_icon.png"
+  min_sdk_android: 21
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/sounds/
+    - assets/icons/app_icon.png
+    - assets/icons/
+
+  fonts:
+    - family: Ysabeau
+      fonts:
+        - asset: assets/fonts/ysabeau/Ysabeau-Black.ttf
+          weight: 900
+        - asset: assets/fonts/ysabeau/Ysabeau-BlackItalic.ttf
+          weight: 900
+          style: italic
+        - asset: assets/fonts/ysabeau/Ysabeau-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/ysabeau/Ysabeau-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/ysabeau/Ysabeau-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/ysabeau/Ysabeau-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/ysabeau/Ysabeau-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/ysabeau/Ysabeau-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/ysabeau/Ysabeau-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/ysabeau/Ysabeau-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/ysabeau/Ysabeau-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/ysabeau/Ysabeau-Light.ttf
+          weight: 300
+        - asset: assets/fonts/ysabeau/Ysabeau-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/ysabeau/Ysabeau-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/ysabeau/Ysabeau-ExtraLightItalic.ttf
+          weight: 200
+          style: italic
+        - asset: assets/fonts/ysabeau/Ysabeau-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/ysabeau/Ysabeau-ThinItalic.ttf
+          weight: 100
+          style: italic
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/cairo/Cairo-Black.ttf
+          weight: 900
+        - asset: assets/fonts/cairo/Cairo-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/cairo/Cairo-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/cairo/Cairo-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/cairo/Cairo-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/cairo/Cairo-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/cairo/Cairo-Light.ttf
+          weight: 300
+        - asset: assets/fonts/cairo/Cairo-ExtraLight.ttf
+          weight: 200
