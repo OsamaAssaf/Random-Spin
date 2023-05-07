@@ -22,6 +22,7 @@ dependencies:
   font_awesome_flutter: ^10.4.0
   flutter_svg: ^2.0.5
   google_mobile_ads: ^3.0.0
+  flutter_native_splash: ^2.2.19
 
 
 dev_dependencies:
@@ -109,3 +110,13 @@ flutter:
           weight: 300
         - asset: assets/fonts/cairo/Cairo-ExtraLight.ttf
           weight: 200
+
+flutter_native_splash:
+
+  color: "#FFFFFF"
+  image: assets/icons/4.0X/app_icon.png
+  branding: assets/gifs/loading.gif
+
+  # To position the branding image at the bottom of the screen you can use bottom, bottomRight,
+  # and bottomLeft. The default values is bottom if not specified or specified something else.
+  branding_mode: bottom
