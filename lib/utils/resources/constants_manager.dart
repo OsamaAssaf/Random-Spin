@@ -1,4 +1,4 @@
-class StringsManager {
+class ConstantsManager {
   static const String developerName = 'Osama Assaf';
   static const String developerEmail = 'osama.assaf.y@gmail.com';
   static const String developerFacebook =
@@ -8,4 +8,6 @@ class StringsManager {
 
   static const String bannerAdAndroidId =
       'ca-app-pub-2547333917189112/2049341357';
+
+  static const String savedListsKey = 'saved_lists';
 }

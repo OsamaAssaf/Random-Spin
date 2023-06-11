@@ -44,6 +44,11 @@ ThemeData getApplicationTheme() {
         ),
       ),
     ),
+    bottomSheetTheme: const BottomSheetThemeData(
+      backgroundColor: Colors.transparent,
+      surfaceTintColor: Colors.transparent,
+      elevation: 0.0,
+    ),
     textTheme: TextTheme(
       bodyLarge: const TextStyle(
         fontSize: 24.0,

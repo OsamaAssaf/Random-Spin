@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:random_spin/modules/saved_lists/view/saved_lists_view.dart';
 import 'package:random_spin/modules/settings/bindings/settings_binding.dart';
 import 'package:random_spin/repositories/language/language_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,6 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'modules/about_us/view/about_us_view.dart';
 import 'modules/home/binding/home_binding.dart';
 import 'modules/home/view/home_view.dart';
+import 'modules/saved_lists/bindings/saved_lists_binding.dart';
 import 'modules/settings/view/settings_view.dart';
 import 'modules/use_instructions/view/use_instructions_view.dart';
 import 'repositories/language/language_locale.dart';
@@ -24,6 +26,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   MobileAds.instance.initialize();
   sharedPreferences = await SharedPreferences.getInstance();
+  // sharedPreferences.clear();
   packageInfo = await PackageInfo.fromPlatform();
   final LanguageRepository languageRepository = LanguageLocale();
   Get.updateLocale(
@@ -64,6 +67,13 @@ class MyApp extends StatelessWidget {
           page: () {
             return const AboutUsView();
           },
+        ),
+        GetPage(
+          name: SavedListsView.routeName,
+          page: () {
+            return SavedListsView();
+          },
+          binding: SavedListsBinding(),
         ),
       ],
     );

@@ -5,7 +5,7 @@ import 'package:random_spin/modules/about_us/widgets/info_widget.dart';
 import 'package:random_spin/modules/about_us/widgets/social_button.dart';
 
 import '../../../utils/resources/assets_manager.dart';
-import '../../../utils/resources/strings_manager.dart';
+import '../../../utils/resources/constants_manager.dart';
 
 class AboutUsView extends StatelessWidget {
   const AboutUsView({Key? key}) : super(key: key);
@@ -56,12 +56,12 @@ class AboutUsView extends StatelessWidget {
                 const SizedBox(height: 8.0),
                 InfoWidget(
                   title: '${translations.name.tr}:',
-                  value: StringsManager.developerName,
+                  value: ConstantsManager.developerName,
                 ),
                 const SizedBox(height: 4.0),
                 InfoWidget(
                   title: '${translations.email.tr}:',
-                  value: StringsManager.developerEmail,
+                  value: ConstantsManager.developerEmail,
                 ),
                 const SizedBox(height: 16.0),
                 Row(
@@ -69,11 +69,11 @@ class AboutUsView extends StatelessWidget {
                   children: const [
                     SocialButton(
                       iconAsset: AssetsIcons.facebookLogo,
-                      url: StringsManager.developerFacebook,
+                      url: ConstantsManager.developerFacebook,
                     ),
                     SocialButton(
                       iconAsset: AssetsIcons.linkedinLogo,
-                      url: StringsManager.developerLinkedin,
+                      url: ConstantsManager.developerLinkedin,
                     ),
                   ],
                 ),

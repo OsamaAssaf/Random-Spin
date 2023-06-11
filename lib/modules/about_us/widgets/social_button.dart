@@ -22,7 +22,7 @@ class SocialButton extends StatelessWidget {
         onPressed: () async {
           if (!await launchUrl(Uri.parse(url))) {
             Components.snackBar(
-              title: translations.somethingWrongTryAgain.tr,
+              content: translations.somethingWrongTryAgain.tr,
             );
           }
         },

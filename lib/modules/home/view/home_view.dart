@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:random_spin/main.dart';
 import 'package:random_spin/modules/home/controller/home_controller.dart';
+import 'package:random_spin/modules/saved_lists/view/saved_lists_view.dart';
 import 'package:random_spin/modules/settings/view/settings_view.dart';
 
 import '../../../utils/resources/color_manager.dart';
@@ -103,7 +104,7 @@ class HomeView extends StatelessWidget {
                     },
                     items: controller.fortuneItem.map(
                       (item) {
-                        int colorIndex = controller.getColorIndex();
+                        // int colorIndex = controller.getColorIndex();
                         return FortuneItem(
                           child: Text(
                             item,
@@ -112,9 +113,9 @@ class HomeView extends StatelessWidget {
                           onDoubleTap: () {
                             controller.removeFromFortuneItem(item);
                           },
-                          style: FortuneItemStyle(
-                            color: controller.fortuneItemColorList[colorIndex],
-                          ),
+                          // style: FortuneItemStyle(
+                          // color: controller.fortuneItemColorList[colorIndex],
+                          // ),
                         );
                       },
                     ).toList(),
@@ -150,6 +151,19 @@ class HomeView extends StatelessWidget {
               ),
             ),
             ListTile(
+              title: Text(translations.savedLists.tr),
+              leading: const Icon(Icons.save_as_outlined),
+              trailing: const Icon(Icons.arrow_forward_ios_outlined),
+              onTap: () {
+                Get.toNamed(SavedListsView.routeName)!.then((value) {
+                  if (value == null) return;
+                  _homeController.setFortuneItem = value;
+                  Get.back(closeOverlays: true);
+                });
+              },
+            ),
+            const Divider(),
+            ListTile(
               title: Text(translations.settings.tr),
               leading: const Icon(Icons.settings_outlined),
               trailing: const Icon(Icons.arrow_forward_ios_outlined),
@@ -178,37 +192,34 @@ class HomeView extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            FloatingActionButton(
-              onPressed: () {
-                final TextEditingController textController =
-                    TextEditingController();
-                Get.defaultDialog(
-                  title: translations.enterTheName.tr,
-                  content: TextField(
-                    controller: textController,
-                    style: theme.textTheme.bodySmall,
-                    onSubmitted: (String value) {
-                      String text = value.trim();
-                      if (text.isEmpty) {
-                        return;
-                      }
-                      _homeController.addToFortuneItem(text);
-                      Get.back();
-                      textController.clear();
-                    },
-                    decoration: InputDecoration(
-                      labelText: translations.writeHere.tr,
-                      labelStyle: theme.textTheme.bodySmall,
-                    ),
-                  ),
-                  actions: [
-                    FilledButton(
-                      onPressed: () {
-                        String text = textController.text.trim();
+      floatingActionButton: GetBuilder<HomeController>(
+        builder: (controller) {
+          return Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (controller.fortuneItem.length >= 2) ...[
+                FloatingActionButton(
+                  heroTag: null,
+                  onPressed: () {
+                    controller.saveNamesList();
+                  },
+                  child: const Icon(Icons.save_outlined),
+                ),
+                const SizedBox(width: 8.0),
+              ],
+              FloatingActionButton(
+                heroTag: null,
+                onPressed: () {
+                  final TextEditingController textController =
+                      TextEditingController();
+                  Get.defaultDialog(
+                    title: translations.enterTheName.tr,
+                    content: TextField(
+                      controller: textController,
+                      autofocus: true,
+                      style: theme.textTheme.bodySmall,
+                      onSubmitted: (String value) {
+                        String text = value.trim();
                         if (text.isEmpty) {
                           return;
                         }
@@ -216,35 +227,49 @@ class HomeView extends StatelessWidget {
                         Get.back();
                         textController.clear();
                       },
-                      child: Text(translations.add.tr),
+                      decoration: InputDecoration(
+                        labelText: translations.writeHere.tr,
+                        labelStyle: theme.textTheme.bodySmall,
+                      ),
                     ),
-                    TextButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      child: Text(translations.cancel.tr),
-                    ),
-                  ],
-                );
-              },
-              child: const Icon(Icons.add_outlined),
-            ),
-            GetBuilder<HomeController>(
-              builder: (controller) {
-                if (controller.bannerAd == null || !controller.isAdLoaded) {
-                  return const SizedBox.shrink();
-                }
-                return Container(
-                  margin: const EdgeInsets.only(top: 8.0),
-                  width: controller.bannerAd!.size.width.toDouble(),
-                  height: controller.bannerAd!.size.height.toDouble(),
-                  alignment: Alignment.center,
-                  child: AdWidget(ad: controller.bannerAd!),
-                );
-              },
-            ),
-          ],
-        ),
+                    actions: [
+                      FilledButton(
+                        onPressed: () {
+                          String text = textController.text.trim();
+                          if (text.isEmpty) {
+                            return;
+                          }
+                          _homeController.addToFortuneItem(text);
+                          Get.back();
+                          textController.clear();
+                        },
+                        child: Text(translations.add.tr),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        child: Text(translations.cancel.tr),
+                      ),
+                    ],
+                  );
+                },
+                child: const Icon(Icons.add_outlined),
+              ),
+            ],
+          );
+        },
+      ),
+      bottomNavigationBar: GetBuilder<HomeController>(
+        builder: (controller) {
+          if (controller.bannerAd == null || !controller.isAdLoaded) {
+            return const SizedBox.shrink();
+          }
+          return SizedBox(
+            height: controller.bannerAd!.size.height.toDouble(),
+            child: AdWidget(ad: controller.bannerAd!),
+          );
+        },
       ),
     );
   }

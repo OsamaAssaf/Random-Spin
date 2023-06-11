@@ -35,6 +35,12 @@ class TranslationsKeys extends Translations {
           key.name: 'Name',
           key.email: 'Email',
           key.somethingWrongTryAgain: 'Something wrong, Try again!',
+          key.namesListSaved: 'Names list has been saved',
+          key.savedLists: 'Saved lists',
+          key.enterListName: 'Enter list name',
+          key.listNameRequired: 'List name required',
+          key.done: 'Done',
+          key.noSavedList: 'There is no saved list yet!',
         },
         'ar': {
           key.appTitle: 'عجلة الحظ',
@@ -48,7 +54,7 @@ class TranslationsKeys extends Translations {
           key.cancel: 'إلغاء',
           key.add: 'إضافة',
           key.writeHere: 'اكتب هنا...',
-          key.spin: 'اسحب',
+          key.spin: 'انقر',
           key.wins: 'فاز',
           key.remove: 'حذف',
           key.continues: 'أكمل',
@@ -64,6 +70,12 @@ class TranslationsKeys extends Translations {
           key.name: 'الاسم',
           key.email: 'البريد الالكتروني',
           key.somethingWrongTryAgain: 'حدث خطأ، أعد المحاولة !',
+          key.namesListSaved: 'تم حفظ قائمة الأسماء',
+          key.savedLists: 'القوائم المحفوظة',
+          key.enterListName: 'أدخل اسم القائمة',
+          key.listNameRequired: 'اسم القائمة مطلوب',
+          key.done: 'تم',
+          key.noSavedList: 'لا توجد قوائم محفوظة',
         }
       };
 }

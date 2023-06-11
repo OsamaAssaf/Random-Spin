@@ -26,4 +26,10 @@ class Translate {
   final String name = 'name';
   final String email = 'email';
   final String somethingWrongTryAgain = 'somethingWrongTryAgain';
+  final String namesListSaved = 'namesListSaved';
+  final String savedLists = 'savedLists';
+  final String enterListName = 'enterListName';
+  final String listNameRequired = 'listNameRequired';
+  final String done = 'done';
+  final String noSavedList = 'noSavedList';
 }
