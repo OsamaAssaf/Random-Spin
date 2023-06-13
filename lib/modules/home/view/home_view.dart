@@ -8,6 +8,7 @@ import 'package:random_spin/modules/saved_lists/view/saved_lists_view.dart';
 import 'package:random_spin/modules/settings/view/settings_view.dart';
 
 import '../../../utils/resources/color_manager.dart';
+import '../../../utils/widgets/main_app_bar.dart';
 import '../../about_us/view/about_us_view.dart';
 import '../../use_instructions/view/use_instructions_view.dart';
 
@@ -21,11 +22,14 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          translations.appTitle.tr,
-        ),
+      appBar: MainAppBar(
+        title: translations.appTitle.tr,
       ),
+      // appBar: AppBar(
+      //   title: Text(
+      //     translations.appTitle.tr,
+      //   ),
+      // ),
       body: GetBuilder<HomeController>(
         builder: (controller) {
           if (controller.fortuneItem.isEmpty) {

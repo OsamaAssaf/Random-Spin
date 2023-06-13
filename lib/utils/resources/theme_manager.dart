@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:random_spin/utils/resources/color_manager.dart';
 
@@ -14,16 +15,19 @@ ThemeData getApplicationTheme() {
       background: ColorManager.white,
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor: ColorManager.primary,
-      foregroundColor: ColorManager.black,
+      backgroundColor: ColorManager.white,
+      foregroundColor: ColorManager.primary,
       centerTitle: true,
       titleTextStyle: TextStyle(
         fontFamily:
             Get.locale!.languageCode == 'ar' ? fontFamilyAr : fontFamilyEn,
         fontSize: 22.0,
         fontWeight: FontWeight.w600,
-        color: ColorManager.black,
+        color: ColorManager.primary,
         letterSpacing: 1.5,
+      ),
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: ColorManager.primary,
       ),
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -80,7 +84,7 @@ ThemeData getApplicationTheme() {
         letterSpacing: 1.5,
       ),
       labelSmall: const TextStyle(
-        fontSize: 18.0,
+        fontSize: 16.0,
         fontStyle: FontStyle.italic,
       ),
     ),

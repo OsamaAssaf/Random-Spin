@@ -7,5 +7,7 @@ class UseInstructionsController {
     translations.youCanSpinTheWheel.tr,
     translations.doubleClickOnNameToDelete.tr,
     translations.youCanMuteWheelSoundFromTheSettings.tr,
+    translations.pressOnSavedListCardToChoose.tr,
+    translations.swipeSavedListToDelete.tr,
   ];
 }

@@ -20,7 +20,12 @@ class SocialButton extends StatelessWidget {
       height: 52.0,
       child: IconButton(
         onPressed: () async {
-          if (!await launchUrl(Uri.parse(url))) {
+          try {
+            await launchUrl(
+              Uri.parse(url),
+              mode: LaunchMode.externalApplication,
+            );
+          } catch (_) {
             Components.snackBar(
               content: translations.somethingWrongTryAgain.tr,
             );

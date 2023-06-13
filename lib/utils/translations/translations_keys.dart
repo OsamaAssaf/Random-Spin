@@ -29,6 +29,10 @@ class TranslationsKeys extends Translations {
           key.doubleClickOnNameToDelete: 'Double click on name to delete it .',
           key.youCanMuteWheelSoundFromTheSettings:
               'You can mute wheel sound from the settings .',
+          key.pressOnSavedListCardToChoose:
+              'Press on saved list card to choose it .',
+          key.swipeSavedListToDelete:
+              'You can swipe saved list card from left to right to delete it .',
           key.sound: 'Sound',
           key.versionNumber: 'Version number',
           key.developerInfo: 'Developer info',
@@ -60,10 +64,14 @@ class TranslationsKeys extends Translations {
           key.continues: 'أكمل',
           key.useInstructions: 'تعليمات الاستخدام',
           key.aboutUs: 'عن التطبيق',
-          key.youCanSpinTheWheel: 'يمكنك تدوير العجلة أو الضغط على "اسحب" .',
+          key.youCanSpinTheWheel: 'يمكنك تدوير العجلة أو الضغط على "انقر" .',
           key.doubleClickOnNameToDelete: 'اضغط مرتين على الاسم لحذفه .',
           key.youCanMuteWheelSoundFromTheSettings:
               'يمكنك كتم صوت العجلة من الإعدادات .',
+          key.pressOnSavedListCardToChoose:
+              'اضغط على بطاقة القائمة المحفوظة لاختيارها .',
+          key.swipeSavedListToDelete:
+              'يمكنك سحب بطاقة القائمة المحفوطة من اليمين لليسار لحذفها .',
           key.sound: 'الصوت',
           key.versionNumber: 'رقم الإصدار',
           key.developerInfo: 'معلومات المطور',

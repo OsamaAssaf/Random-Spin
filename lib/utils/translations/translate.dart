@@ -20,6 +20,8 @@ class Translate {
   final String doubleClickOnNameToDelete = 'doubleClickOnNameToDelete';
   final String youCanMuteWheelSoundFromTheSettings =
       'youCanMuteWheelSoundFromTheSettings';
+  final String pressOnSavedListCardToChoose = 'pressOnSavedListCardToChoose';
+  final String swipeSavedListToDelete = 'swipeSavedListToDelete';
   final String sound = 'sound';
   final String versionNumber = 'versionNumber';
   final String developerInfo = 'developerInfo';

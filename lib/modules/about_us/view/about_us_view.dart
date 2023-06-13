@@ -6,6 +6,7 @@ import 'package:random_spin/modules/about_us/widgets/social_button.dart';
 
 import '../../../utils/resources/assets_manager.dart';
 import '../../../utils/resources/constants_manager.dart';
+import '../../../utils/widgets/main_app_bar.dart';
 
 class AboutUsView extends StatelessWidget {
   const AboutUsView({Key? key}) : super(key: key);
@@ -15,8 +16,9 @@ class AboutUsView extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(translations.aboutUs.tr),
+      appBar: MainAppBar(
+        title: translations.aboutUs.tr,
+        canBack: true,
       ),
       body: ListView(
         children: [

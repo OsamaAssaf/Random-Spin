@@ -25,6 +25,7 @@ class SavedListsController extends GetxController {
 
   Future<void> deleteItem(int index) async {
     savedLists.removeAt(index);
+    update();
     await savedListsRepository.saveAll(savedLists);
   }
 
