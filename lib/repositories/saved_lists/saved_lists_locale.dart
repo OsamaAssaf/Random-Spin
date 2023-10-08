@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:random_spin/models/saved_list_model.dart';
-
 import '../../main.dart';
 import '../../utils/resources/constants_manager.dart';
 import 'saved_lists_repository.dart';

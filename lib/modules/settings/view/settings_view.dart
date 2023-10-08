@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
+
 import 'package:random_spin/main.dart';
 import 'package:random_spin/modules/settings/controller/settings_controller.dart';
 import 'package:random_spin/utils/resources/color_manager.dart';
-
 import '../../../utils/widgets/main_app_bar.dart';
 
 class SettingsView extends StatelessWidget {
@@ -15,7 +16,7 @@ class SettingsView extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     return Scaffold(
       appBar: MainAppBar(
-        title: translations.settings.tr,
+        title: localizations.settings,
         canBack: true,
       ),
       body: GetBuilder<SettingsController>(
@@ -41,13 +42,13 @@ class SettingsView extends StatelessWidget {
                     child: ExpansionTile(
                       leading: const Icon(Icons.language_outlined),
                       title: Text(
-                        translations.language.tr,
+                        localizations.language,
                       ),
                       children: [
                         RadioListTile(
                           value: false,
                           groupValue: controller.isEnglish,
-                          title: Text(translations.arabic.tr),
+                          title: Text(localizations.arabic),
                           onChanged: (bool? value) {
                             controller.setIsEnglish = value!;
                             // controller.changeLanguage();
@@ -56,7 +57,7 @@ class SettingsView extends StatelessWidget {
                         RadioListTile(
                           value: true,
                           groupValue: controller.isEnglish,
-                          title: Text(translations.english.tr),
+                          title: Text(localizations.english),
                           onChanged: (bool? value) {
                             controller.setIsEnglish = value!;
                             // controller.changeLanguage();
@@ -74,7 +75,7 @@ class SettingsView extends StatelessWidget {
                     ),
                     child: SwitchListTile(
                       value: controller.isSoundOn,
-                      title: Text(translations.sound.tr),
+                      title: Text(localizations.sound),
                       secondary: Icon(
                         controller.isSoundOn
                             ? Icons.volume_up_outlined

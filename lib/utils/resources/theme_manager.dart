@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
+
 import 'package:random_spin/utils/resources/color_manager.dart';
 
 ThemeData getApplicationTheme() {
@@ -8,7 +8,10 @@ ThemeData getApplicationTheme() {
   const String fontFamilyAr = 'Cairo';
   return ThemeData(
     useMaterial3: true,
-    fontFamily: Get.locale!.languageCode == 'ar' ? fontFamilyAr : fontFamilyEn,
+    fontFamily: fontFamilyEn,
+    fontFamilyFallback: const [
+      fontFamilyAr,
+    ],
     colorScheme: ColorScheme.fromSwatch().copyWith(
       primary: ColorManager.primary,
       secondary: ColorManager.secondary,
@@ -19,9 +22,11 @@ ThemeData getApplicationTheme() {
       foregroundColor: ColorManager.primary,
       centerTitle: true,
       titleTextStyle: TextStyle(
-        fontFamily:
-            Get.locale!.languageCode == 'ar' ? fontFamilyAr : fontFamilyEn,
-        fontSize: 22.0,
+        fontFamily: fontFamilyEn,
+        fontFamilyFallback: const [
+          fontFamilyAr,
+        ],
+        fontSize: 20.0,
         fontWeight: FontWeight.w600,
         color: ColorManager.primary,
         letterSpacing: 1.5,
@@ -55,36 +60,36 @@ ThemeData getApplicationTheme() {
     ),
     textTheme: TextTheme(
       bodyLarge: const TextStyle(
-        fontSize: 24.0,
+        fontSize: 22.0,
         fontWeight: FontWeight.w800,
         fontStyle: FontStyle.italic,
         letterSpacing: 2.0,
       ),
       bodyMedium: const TextStyle(
-        fontSize: 20.0,
-      ),
-      bodySmall: const TextStyle(
         fontSize: 18.0,
       ),
+      bodySmall: const TextStyle(
+        fontSize: 16.0,
+      ),
       displayLarge: TextStyle(
-        fontSize: 26.0,
+        fontSize: 24.0,
         fontWeight: FontWeight.w800,
         fontStyle: FontStyle.italic,
         letterSpacing: 2.0,
         color: ColorManager.white,
       ),
       displayMedium: TextStyle(
-        fontSize: 22.0,
+        fontSize: 20.0,
         fontWeight: FontWeight.w600,
         color: ColorManager.white,
       ),
       displaySmall: const TextStyle(
-        fontSize: 22.0,
+        fontSize: 20.0,
         fontWeight: FontWeight.w800,
         letterSpacing: 1.5,
       ),
       labelSmall: const TextStyle(
-        fontSize: 16.0,
+        fontSize: 14.0,
         fontStyle: FontStyle.italic,
       ),
     ),

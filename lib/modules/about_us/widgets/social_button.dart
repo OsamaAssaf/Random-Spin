@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
-import 'package:random_spin/main.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'package:random_spin/main.dart';
 import '../../../utils/components.dart';
 
 class SocialButton extends StatelessWidget {
@@ -27,7 +27,7 @@ class SocialButton extends StatelessWidget {
             );
           } catch (_) {
             Components.snackBar(
-              content: translations.somethingWrongTryAgain.tr,
+              content: localizations.somethingWrongTryAgain,
             );
           }
         },

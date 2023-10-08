@@ -1,15 +1,17 @@
 import 'dart:async';
 
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:loading_plus/loading_plus.dart';
+
 import 'package:random_spin/main.dart';
 import 'package:random_spin/modules/settings/controller/settings_controller.dart';
 import 'package:random_spin/utils/components.dart';
 import 'package:random_spin/utils/resources/constants_manager.dart';
-
 import '../../../repositories/saved_lists/saved_lists_repository.dart';
 import '../../../utils/resources/assets_manager.dart';
 
@@ -112,12 +114,42 @@ class HomeController extends GetxController {
     )..load();
   }
 
+  Future<void> loadFullScreenAd() async {
+    LoadingPlus.instance.show();
+    await InterstitialAd.load(
+      adUnitId: ConstantsManager.fullScreenAdAndroidId,
+      request: const AdRequest(),
+      adLoadCallback: InterstitialAdLoadCallback(
+        // Called when an ad is successfully received.
+        onAdLoaded: (ad) async {
+          await ad.show();
+          LoadingPlus.instance.dismiss();
+          ad.fullScreenContentCallback = FullScreenContentCallback(
+            onAdFailedToShowFullScreenContent: (ad, err) {
+              ad.dispose();
+              saveNamesList();
+            },
+            onAdDismissedFullScreenContent: (ad) {
+              ad.dispose();
+              saveNamesList();
+            },
+          );
+        },
+
+        // Called when an ad request failed.
+        onAdFailedToLoad: (LoadAdError error) {
+          debugPrint('InterstitialAd failed to load: $error');
+        },
+      ),
+    );
+  }
+
   void saveNamesList() {
     final TextEditingController textController = TextEditingController();
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
     String? listName;
     Get.defaultDialog(
-      title: translations.enterListName.tr,
+      title: localizations.enterListName,
       content: Builder(
         builder: (BuildContext context) {
           final ThemeData theme = Theme.of(context);
@@ -127,7 +159,7 @@ class HomeController extends GetxController {
               controller: textController,
               style: theme.textTheme.bodySmall,
               decoration: InputDecoration(
-                labelText: translations.writeHere.tr,
+                labelText: localizations.writeHere,
                 labelStyle: theme.textTheme.bodySmall,
                 errorStyle: const TextStyle(
                   fontSize: 14.0,
@@ -135,7 +167,7 @@ class HomeController extends GetxController {
               ),
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
-                  return translations.listNameRequired.tr;
+                  return localizations.listNameRequired;
                 }
                 return null;
               },
@@ -155,10 +187,10 @@ class HomeController extends GetxController {
             savedListsRepository.saveNewList(listName!, fortuneItem);
             Get.back(closeOverlays: true);
             Components.snackBar(
-              content: translations.namesListSaved.tr,
+              content: localizations.namesListSaved,
             );
           },
-          child: Text(translations.done.tr),
+          child: Text(localizations.done),
         ),
       ],
     );

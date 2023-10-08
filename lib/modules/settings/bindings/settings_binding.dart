@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:random_spin/repositories/sound/sound_locale.dart';
 
+import 'package:random_spin/repositories/sound/sound_locale.dart';
 import '../../../repositories/language/language_locale.dart';
 import '../controller/settings_controller.dart';
 

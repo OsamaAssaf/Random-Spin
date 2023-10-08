@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
+
 import 'package:random_spin/modules/saved_lists/controller/saved_lists_controller.dart';
 import 'package:random_spin/utils/widgets/main_app_bar.dart';
-
 import '../../../main.dart';
 import '../../../models/saved_list_model.dart';
 import '../../../utils/components.dart';
@@ -11,13 +12,13 @@ import '../../../utils/resources/color_manager.dart';
 class SavedListsView extends StatelessWidget {
   SavedListsView({super.key});
   static const String routeName = '/savedListsView';
-  final SavedListsController _savedListsController = Get.find();
+  final SavedListsController savedListsController = Get.find();
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return Scaffold(
       appBar: MainAppBar(
-        title: translations.savedLists.tr,
+        title: localizations.savedLists,
         canBack: true,
       ),
       body: GetBuilder<SavedListsController>(
@@ -27,7 +28,7 @@ class SavedListsView extends StatelessWidget {
           }
           if (controller.savedLists.isEmpty) {
             return Center(
-              child: Text(translations.noSavedList.tr),
+              child: Text(localizations.noSavedList),
             );
           }
           return Padding(
@@ -85,39 +86,39 @@ class SavedListsView extends StatelessWidget {
                     ),
                   ),
                 );
-                return GestureDetector(
-                  onTap: () {
-                    controller.chooseItem(index);
-                  },
-                  child: Dismissible(
-                    key: UniqueKey(),
-                    direction: DismissDirection.startToEnd,
-                    background: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.delete,
-                          color: ColorManager.red,
-                        ),
-                      ],
-                    ),
-                    onDismissed: (_) {
-                      controller.deleteItem(index);
-                    },
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            '${savedListModel.listName}',
-                            style: theme.textTheme.labelSmall,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                );
+                // return GestureDetector(
+                //   onTap: () {
+                //     controller.chooseItem(index);
+                //   },
+                //   child: Dismissible(
+                //     key: UniqueKey(),
+                //     direction: DismissDirection.startToEnd,
+                //     background: Row(
+                //       mainAxisAlignment: MainAxisAlignment.start,
+                //       children: [
+                //         Icon(
+                //           Icons.delete,
+                //           color: ColorManager.red,
+                //         ),
+                //       ],
+                //     ),
+                //     onDismissed: (_) {
+                //       controller.deleteItem(index);
+                //     },
+                //     child: SizedBox(
+                //       width: double.infinity,
+                //       child: Card(
+                //         child: Padding(
+                //           padding: const EdgeInsets.all(8.0),
+                //           child: Text(
+                //             '${savedListModel.listName}',
+                //             style: theme.textTheme.labelSmall,
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                // );
               },
             ),
           );

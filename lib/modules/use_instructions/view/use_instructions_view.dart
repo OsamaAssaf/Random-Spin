@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 import 'package:random_spin/main.dart';
 import 'package:random_spin/modules/use_instructions/controller/use_instructions_controller.dart';
-
 import '../../../utils/widgets/main_app_bar.dart';
 
 class UseInstructionsView extends StatelessWidget {
@@ -17,7 +16,7 @@ class UseInstructionsView extends StatelessWidget {
     ThemeData theme = Theme.of(context);
     return Scaffold(
       appBar: MainAppBar(
-        title: translations.useInstructions.tr,
+        title: localizations.useInstructions,
         canBack: true,
       ),
       body: ListView.separated(

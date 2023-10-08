@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 import 'package:get/get.dart';
-import 'package:random_spin/repositories/sound/sound_repository.dart';
 
+import 'package:random_spin/repositories/sound/sound_repository.dart';
 import '../../../repositories/language/language_repository.dart';
 
 class SettingsController extends GetxController {

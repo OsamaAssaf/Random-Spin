@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 import 'package:random_spin/main.dart';
 import 'package:random_spin/modules/about_us/widgets/info_widget.dart';
 import 'package:random_spin/modules/about_us/widgets/social_button.dart';
-
 import '../../../utils/resources/assets_manager.dart';
 import '../../../utils/resources/constants_manager.dart';
 import '../../../utils/widgets/main_app_bar.dart';
@@ -17,7 +16,7 @@ class AboutUsView extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     return Scaffold(
       appBar: MainAppBar(
-        title: translations.aboutUs.tr,
+        title: localizations.aboutUs,
         canBack: true,
       ),
       body: ListView(
@@ -32,9 +31,9 @@ class AboutUsView extends StatelessWidget {
                 FittedBox(
                   child: Column(
                     children: [
-                      Text(translations.appTitle.tr),
+                      Text(localizations.appTitle),
                       Text(
-                          '${translations.versionNumber.tr}: ${packageInfo.version}'),
+                          '${localizations.versionNumber}: ${packageInfo.version}'),
                     ],
                   ),
                 ),
@@ -50,25 +49,25 @@ class AboutUsView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      '${translations.developerInfo.tr}:',
+                      '${localizations.developerInfo}:',
                       style: theme.textTheme.displaySmall,
                     ),
                   ],
                 ),
                 const SizedBox(height: 8.0),
                 InfoWidget(
-                  title: '${translations.name.tr}:',
+                  title: '${localizations.name}:',
                   value: ConstantsManager.developerName,
                 ),
                 const SizedBox(height: 4.0),
                 InfoWidget(
-                  title: '${translations.email.tr}:',
+                  title: '${localizations.email}:',
                   value: ConstantsManager.developerEmail,
                 ),
                 const SizedBox(height: 16.0),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     SocialButton(
                       iconAsset: AssetsIcons.facebookLogo,
                       url: ConstantsManager.developerFacebook,
