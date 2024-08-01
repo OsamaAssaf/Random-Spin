@@ -1,13 +1,4 @@
-import 'package:flutter/material.dart';
-
-import 'package:get/get.dart';
-
-import 'package:random_spin/modules/saved_lists/controller/saved_lists_controller.dart';
-import 'package:random_spin/utils/widgets/main_app_bar.dart';
-import '../../../main.dart';
-import '../../../models/saved_list_model.dart';
-import '../../../utils/components.dart';
-import '../../../utils/resources/color_manager.dart';
+import '../../../utils/all_imports.dart';
 
 class SavedListsView extends StatelessWidget {
   SavedListsView({super.key});
@@ -39,8 +30,7 @@ class SavedListsView extends StatelessWidget {
                 return const SizedBox(height: 16.0);
               },
               itemBuilder: (BuildContext context, int index) {
-                final SavedListModel savedListModel =
-                    controller.savedLists[index];
+                final SavedListModel savedListModel = controller.savedLists[index];
                 return GestureDetector(
                   onTap: () {
                     controller.chooseItem(index);

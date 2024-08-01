@@ -1,14 +1,7 @@
-import 'package:flutter/material.dart';
-
-import 'package:random_spin/main.dart';
-import 'package:random_spin/modules/about_us/widgets/info_widget.dart';
-import 'package:random_spin/modules/about_us/widgets/social_button.dart';
-import '../../../utils/resources/assets_manager.dart';
-import '../../../utils/resources/constants_manager.dart';
-import '../../../utils/widgets/main_app_bar.dart';
+import '../../../utils/all_imports.dart';
 
 class AboutUsView extends StatelessWidget {
-  const AboutUsView({Key? key}) : super(key: key);
+  const AboutUsView({super.key});
   static const String routeName = '/aboutUsView';
 
   @override
@@ -32,8 +25,7 @@ class AboutUsView extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(localizations.appTitle),
-                      Text(
-                          '${localizations.versionNumber}: ${packageInfo.version}'),
+                      Text('${localizations.versionNumber}: ${packageInfo.version}'),
                     ],
                   ),
                 ),

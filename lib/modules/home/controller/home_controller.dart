@@ -1,19 +1,4 @@
-import 'dart:async';
-
-import 'package:flutter/material.dart';
-
-import 'package:audioplayers/audioplayers.dart';
-import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
-import 'package:get/get.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:loading_plus/loading_plus.dart';
-
-import 'package:random_spin/main.dart';
-import 'package:random_spin/modules/settings/controller/settings_controller.dart';
-import 'package:random_spin/utils/components.dart';
-import 'package:random_spin/utils/resources/constants_manager.dart';
-import '../../../repositories/saved_lists/saved_lists_repository.dart';
-import '../../../utils/resources/assets_manager.dart';
+import '../../../utils/all_imports.dart';
 
 class HomeController extends GetxController {
   final SavedListsRepository savedListsRepository;
@@ -115,7 +100,7 @@ class HomeController extends GetxController {
   }
 
   Future<void> loadFullScreenAd() async {
-    LoadingPlus.instance.show();
+    Components.showLoading();
     await InterstitialAd.load(
       adUnitId: ConstantsManager.fullScreenAdAndroidId,
       request: const AdRequest(),
@@ -123,7 +108,7 @@ class HomeController extends GetxController {
         // Called when an ad is successfully received.
         onAdLoaded: (ad) async {
           await ad.show();
-          LoadingPlus.instance.dismiss();
+          Components.dismissLoading();
           ad.fullScreenContentCallback = FullScreenContentCallback(
             onAdFailedToShowFullScreenContent: (ad, err) {
               ad.dispose();

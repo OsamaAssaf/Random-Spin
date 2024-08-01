@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import 'package:get/get.dart';
+import '../../../utils/all_imports.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MainAppBar({

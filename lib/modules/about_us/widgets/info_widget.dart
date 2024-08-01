@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
+import '../../../utils/all_imports.dart';
 
 class InfoWidget extends StatelessWidget {
-  const InfoWidget({Key? key, required this.title, required this.value})
-      : super(key: key);
+  const InfoWidget({super.key, required this.title, required this.value});
 
   final String title;
   final String value;

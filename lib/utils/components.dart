@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import 'package:get/get.dart';
+import '../../../utils/all_imports.dart';
 
 class Components {
   static void snackBar({required String content}) {
@@ -10,6 +8,14 @@ class Components {
         duration: const Duration(seconds: 3),
       ),
     );
+  }
+
+  static void showLoading() {
+    LoadingPlusController().show();
+  }
+
+  static void dismissLoading() {
+    LoadingPlusController().dismiss();
   }
 
   static Center loadingWidget() {

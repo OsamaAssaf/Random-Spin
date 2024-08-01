@@ -1,15 +1,10 @@
-import 'package:flutter/material.dart';
-
-import 'package:random_spin/main.dart';
-import 'package:random_spin/modules/use_instructions/controller/use_instructions_controller.dart';
-import '../../../utils/widgets/main_app_bar.dart';
+import '../../../utils/all_imports.dart';
 
 class UseInstructionsView extends StatelessWidget {
-  UseInstructionsView({Key? key}) : super(key: key);
+  UseInstructionsView({super.key});
   static const String routeName = '/instructionsForUseView';
 
-  final UseInstructionsController _useInstructionsController =
-      UseInstructionsController();
+  final UseInstructionsController _useInstructionsController = UseInstructionsController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +17,7 @@ class UseInstructionsView extends StatelessWidget {
       body: ListView.separated(
         itemCount: _useInstructionsController.instructionsList.length,
         itemBuilder: (BuildContext context, int index) {
-          String instruction =
-              _useInstructionsController.instructionsList[index];
+          String instruction = _useInstructionsController.instructionsList[index];
           return ListTile(
             title: Text(
               '${index + 1}- $instruction',

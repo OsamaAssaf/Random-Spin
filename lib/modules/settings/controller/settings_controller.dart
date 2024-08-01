@@ -1,9 +1,4 @@
-import 'dart:ui';
-
-import 'package:get/get.dart';
-
-import 'package:random_spin/repositories/sound/sound_repository.dart';
-import '../../../repositories/language/language_repository.dart';
+import '../../../utils/all_imports.dart';
 
 class SettingsController extends GetxController {
   final LanguageRepository languageRepository;

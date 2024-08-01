@@ -1,8 +1,4 @@
-import 'package:get/get.dart';
-
-import 'package:random_spin/repositories/sound/sound_locale.dart';
-import '../../../repositories/language/language_locale.dart';
-import '../controller/settings_controller.dart';
+import '../../../utils/all_imports.dart';
 
 class SettingsBinding implements Bindings {
   @override

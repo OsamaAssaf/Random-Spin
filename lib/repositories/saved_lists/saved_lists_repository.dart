@@ -1,4 +1,4 @@
-import '../../models/saved_list_model.dart';
+import '../../../utils/all_imports.dart';
 
 abstract class SavedListsRepository {
   Future<void> saveNewList(String listName, List<String> names);

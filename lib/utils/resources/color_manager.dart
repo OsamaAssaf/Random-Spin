@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import '../../../utils/all_imports.dart';
 
 class ColorManager {
   static Color primary = const Color(0xffE6BD18);

@@ -1,14 +1,7 @@
-import 'package:flutter/material.dart';
-
-import 'package:get/get.dart';
-
-import 'package:random_spin/main.dart';
-import 'package:random_spin/modules/settings/controller/settings_controller.dart';
-import 'package:random_spin/utils/resources/color_manager.dart';
-import '../../../utils/widgets/main_app_bar.dart';
+import '../../../utils/all_imports.dart';
 
 class SettingsView extends StatelessWidget {
-  const SettingsView({Key? key}) : super(key: key);
+  const SettingsView({super.key});
   static const String routeName = '/settingView';
 
   @override
@@ -77,9 +70,7 @@ class SettingsView extends StatelessWidget {
                       value: controller.isSoundOn,
                       title: Text(localizations.sound),
                       secondary: Icon(
-                        controller.isSoundOn
-                            ? Icons.volume_up_outlined
-                            : Icons.volume_off_outlined,
+                        controller.isSoundOn ? Icons.volume_up_outlined : Icons.volume_off_outlined,
                       ),
                       inactiveTrackColor: ColorManager.grey,
                       onChanged: (bool? value) {

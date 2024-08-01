@@ -1,7 +1,4 @@
-import 'package:get/get.dart';
-
-import '../../../models/saved_list_model.dart';
-import '../../../repositories/saved_lists/saved_lists_repository.dart';
+import '../../../utils/all_imports.dart';
 
 class SavedListsController extends GetxController {
   final SavedListsRepository savedListsRepository;

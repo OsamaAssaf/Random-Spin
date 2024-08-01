@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
-import 'package:random_spin/utils/resources/color_manager.dart';
+import '../../../utils/all_imports.dart';
 
 ThemeData getApplicationTheme() {
   const String fontFamilyEn = 'Ysabeau';
@@ -12,10 +9,11 @@ ThemeData getApplicationTheme() {
     fontFamilyFallback: const [
       fontFamilyAr,
     ],
+    scaffoldBackgroundColor: ColorManager.white,
     colorScheme: ColorScheme.fromSwatch().copyWith(
       primary: ColorManager.primary,
       secondary: ColorManager.secondary,
-      background: ColorManager.white,
+      surface: ColorManager.white,
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: ColorManager.white,

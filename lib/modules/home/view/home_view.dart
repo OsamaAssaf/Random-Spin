@@ -1,23 +1,7 @@
-import 'dart:io';
-
-import 'package:flutter/material.dart';
-
-import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
-import 'package:get/get.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:upgrader/upgrader.dart';
-
-import 'package:random_spin/main.dart';
-import 'package:random_spin/modules/home/controller/home_controller.dart';
-import 'package:random_spin/modules/saved_lists/view/saved_lists_view.dart';
-import 'package:random_spin/modules/settings/view/settings_view.dart';
-import '../../../utils/resources/color_manager.dart';
-import '../../../utils/widgets/main_app_bar.dart';
-import '../../about_us/view/about_us_view.dart';
-import '../../use_instructions/view/use_instructions_view.dart';
+import '../../../utils/all_imports.dart';
 
 class HomeView extends StatelessWidget {
-  HomeView({Key? key}) : super(key: key);
+  HomeView({super.key});
 
   static const String routeName = '/homeView';
   final HomeController _homeController = Get.find();
@@ -26,11 +10,9 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return UpgradeAlert(
+      barrierDismissible: false,
+      dialogStyle: Platform.isIOS ? UpgradeDialogStyle.cupertino : UpgradeDialogStyle.material,
       upgrader: Upgrader(
-        canDismissDialog: false,
-        dialogStyle: Platform.isIOS
-            ? UpgradeDialogStyle.cupertino
-            : UpgradeDialogStyle.material,
         languageCode: Get.locale!.languageCode,
         messages: UpgraderMessages(code: Get.locale!.languageCode),
       ),
@@ -103,8 +85,7 @@ class HomeView extends StatelessWidget {
                                   },
                                   child: Text(
                                     localizations.remove,
-                                    style:
-                                        theme.textTheme.displayMedium!.copyWith(
+                                    style: theme.textTheme.displayMedium!.copyWith(
                                       color: ColorManager.red,
                                     ),
                                   ),
@@ -235,8 +216,7 @@ class HomeView extends StatelessWidget {
                 FloatingActionButton(
                   heroTag: null,
                   onPressed: () {
-                    final TextEditingController textController =
-                        TextEditingController();
+                    final TextEditingController textController = TextEditingController();
                     Get.defaultDialog(
                       title: localizations.enterTheName,
                       content: TextField(

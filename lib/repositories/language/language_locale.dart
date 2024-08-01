@@ -1,6 +1,4 @@
-import 'package:random_spin/main.dart';
-import '../../utils/resources/storage_manager.dart';
-import 'language_repository.dart';
+import '../../../utils/all_imports.dart';
 
 class LanguageLocale extends LanguageRepository {
   @override

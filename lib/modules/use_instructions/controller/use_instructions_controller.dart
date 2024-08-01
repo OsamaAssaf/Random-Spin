@@ -1,4 +1,4 @@
-import '../../../main.dart';
+import '../../../utils/all_imports.dart';
 
 class UseInstructionsController {
   List<String> instructionsList = [

@@ -1,15 +1,9 @@
-import 'dart:convert';
-
-import 'package:random_spin/models/saved_list_model.dart';
-import '../../main.dart';
-import '../../utils/resources/constants_manager.dart';
-import 'saved_lists_repository.dart';
+import '../../../utils/all_imports.dart';
 
 class SavedListsLocale extends SavedListsRepository {
   @override
   Future<void> saveNewList(String listName, List<String> names) async {
-    String? savedLists =
-        sharedPreferences.getString(ConstantsManager.savedListsKey);
+    String? savedLists = sharedPreferences.getString(ConstantsManager.savedListsKey);
     List<Map<String, dynamic>> listToSave = [];
     if (savedLists != null) {
       List list = jsonDecode(savedLists);
@@ -44,8 +38,7 @@ class SavedListsLocale extends SavedListsRepository {
 
   @override
   Future<List<SavedListModel>> getSavedLists() async {
-    String? savedLists =
-        sharedPreferences.getString(ConstantsManager.savedListsKey);
+    String? savedLists = sharedPreferences.getString(ConstantsManager.savedListsKey);
     if (savedLists == null) return [];
     List<SavedListModel> result = [];
     List list = jsonDecode(savedLists);

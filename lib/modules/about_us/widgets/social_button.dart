@@ -1,14 +1,7 @@
-import 'package:flutter/material.dart';
-
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-import 'package:random_spin/main.dart';
-import '../../../utils/components.dart';
+import '../../../utils/all_imports.dart';
 
 class SocialButton extends StatelessWidget {
-  const SocialButton({Key? key, required this.iconAsset, required this.url})
-      : super(key: key);
+  const SocialButton({super.key, required this.iconAsset, required this.url});
 
   final String iconAsset;
   final String url;
